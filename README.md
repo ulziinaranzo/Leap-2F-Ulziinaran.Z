@@ -32,10 +32,8 @@ Here’s how to get started with the project:
 
    Or, if you prefer npm:
 
+   ```bash
    npm install
-
-   ```
-
    ```
 
 2. **Add your MongoDB Connection URL to .env File**:
