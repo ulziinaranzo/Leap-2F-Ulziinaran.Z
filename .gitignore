@@ -10,3 +10,4 @@ generated.tsx
 .next
 coverage
 .swc/**/*
+.vercel
