@@ -99,3 +99,9 @@ To run your Jest tests and ensure everything works as expected, use:
 ```bash
 yarn test
 ```
+
+Good luck on the challenge! 🍀
+
+Don't forget to read the **PDF file** for instructions on how to submit your challenge.
+
+We hope you do great, and we look forward to seeing you in the **final interview**! 🎉
