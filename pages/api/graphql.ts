@@ -2,7 +2,7 @@ import { buildSubgraphSchema } from "@apollo/subgraph";
 import { InMemoryLRUCache } from "@apollo/utils.keyvaluecache";
 import { resolvers } from "../../graphql/resolvers";
 import { ApolloServer } from "apollo-server-cloud-functions";
-import { connectMongoose } from "@/mongoose/mongoose";
+import { connectMongoose } from "@/mongoose/mongoose-connection";
 import { GraphQLResolverMap } from "@apollo/subgraph/dist/schema-helper";
 import { typeDefs } from "@/graphql/schemas";
 
