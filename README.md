@@ -1,43 +1,48 @@
-# 🌲💼 Pinecone Advocate GRAPHQL Challenge 🚀
+# 🌲💼 Pinecone Advocate GraphQL Challenge 🚀
 
 ## 📋 Overview
 
-Welcome to the **Pinecone Advocate Challenge**! 🌟
+Welcome to the **Pinecone Advocate GraphQL Challenge**! 🌟
 
-The objective of this challenge is to learn how to:
+In this challenge, you will:
 
-- 🛠️ Write **GraphQL queries and mutations**
-- 🧪 Test those queries and mutations using **Jest** unit tests
+- 🛠️ Learn how to write **GraphQL queries and mutations**
+- 🧪 Test your code using **Jest** for unit tests
 
-This README will guide you through:
+This guide will walk you through:
 
-- ⚙️ Setting up the project
-- 💻 Writing your GraphQL operations
-- 🏃‍♂️ Running commands to test your implementation
+- ⚙️ Setting up your project
+- 🖋️ Implementing GraphQL operations
+- 🏃‍♂️ Running commands to test your solution
 
-Let's get started and have some fun while learning! 😎
+Let's dive in and make learning **GraphQL** fun and exciting! 😎
 
 ## ⚙️ Setup Instructions
 
-To get started, you’ll need to install the necessary dependencies.
+Here’s how to get started with the project:
 
 1. **Install Dependencies**:
 
-   ```json
+   If you're using **Yarn**:
+
+   ```bash
    yarn install
+
    ```
 
-   ```json
+   Or, if you prefer npm:
+
+   ```bash
    npm install
    ```
 
 2. **Add your MongoDB Connection URL to .env File**:
 
-   ```json
+   ```bash
    MONGODB_URL=YOUR_MONGODB_URL
    ```
 
-   1. If connection is successful, it should console log `connection successful` text when you start the project. If not, it will console log `connection Failed`.
+   1. Once you've added your MongoDB connection string, start the project. If the connection is successful, you’ll see connection successful in the console. If there’s an issue, it will show connection Failed.
 
 ## 🚀 Required Mutations and Queries to complete challenges
 
@@ -75,22 +80,22 @@ In this challenge, you'll need to implement the following GraphQL operations:
 
 ## ⚙️ Command Instructions
 
-To get started, you’ll need to install the necessary dependencies.
+Here’s how to run the project after implementing the GraphQL operations:
 
-1. **To start project**:
+**Start the Project**:
 
-   ```json
-   yarn dev
-   ```
+To start the development server, run:
 
-1. To work on the challenge locally, run dev command and visit https://studio.apollographql.com/sandbox/explorer then add your local host to sandbox link http://localhost:3000/api/graphql
+```bash
+yarn dev
+```
 
-````
+1. Then open [Apollo Studio Sandbox](https://studio.apollographql.com/sandbox/explorer) and add your local GraphQL endpoint (e.g., `http://localhost:3000/api/graphql`) to start testing your queries and mutations.
 
-2. **To test project**:
+**Run Tests**:
 
-```json
+To run your Jest tests and ensure everything works as expected, use:
+
+```bash
 yarn test
-````
-
-1.  If connection is successful, it should console log `connection successful` text when you start the project. If not, it will console log `connection Failed`.
+```
