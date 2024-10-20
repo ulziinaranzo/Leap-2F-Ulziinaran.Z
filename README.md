@@ -77,20 +77,20 @@ In this challenge, you'll need to implement the following GraphQL operations:
 
 To get started, you’ll need to install the necessary dependencies.
 
-1. **Install Dependencies**:
+1. **To start project**:
 
    ```json
-   yarn install
+   yarn dev
    ```
 
-   ```json
-   npm install
-   ```
+1. To work on the challenge locally, run dev command and visit https://studio.apollographql.com/sandbox/explorer then add your local host to sandbox link http://localhost:3000/api/graphql
 
-2. **Add your MongoDB Connection URL to .env File**:
+````
 
-   ```json
-   MONGODB_URL=YOUR_MONGODB_URL
-   ```
+2. **To test project**:
 
-   1. If connection is successful, it should console log `connection successful` text when you start the project. If not, it will console log `connection Failed`.
+```json
+yarn test
+````
+
+1.  If connection is successful, it should console log `connection successful` text when you start the project. If not, it will console log `connection Failed`.
