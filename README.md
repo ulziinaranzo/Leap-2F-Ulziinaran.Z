@@ -56,8 +56,10 @@ In this challenge, you'll need to implement the following GraphQL operations:
   - **Required fields**:
 
     - `taskName` (String) => required
+    - `description` (String) => required ( must be at least 10 characters long )
     - `isDone` (Boolean) => default to `false`
-    - `priority` (Int) => required
+    - `priority` (Int) => required (values 1-5)
+    - `tags` (Array of Strings) => optional, allows categorization
     - `createdAt` (Date)
     - `updatedAt` (Date)
     - `_id` (MongoDB Object Id)
@@ -66,8 +68,10 @@ In this challenge, you'll need to implement the following GraphQL operations:
   - This mutation updates an existing task's details using its `taskId`.
   - **Fields to update**:
     - `taskName` (String)
-    - `priority` (Int)
+    - `description` (String)
+    - `priority` (Int) => validate within range 1-5
     - `isDone` (Boolean)
+    - `tags` (Array of Strings) => append or remove tags
 
 ### 2. **Queries**:
 
@@ -75,8 +79,15 @@ In this challenge, you'll need to implement the following GraphQL operations:
 
   - This query retrieves all tasks that have been marked as done.
 
+- **`searchTasks`**:
+  - Accepts searchTerm (String): performs a case-insensitive match.
+  - Supports advanced filtering options:
+        - priority (Int)
+        - isDone (Boolean)
+        - createdBefore (Date)
+        - createdAfter (Date)
+ 
 - **`getAllTasks`**:
-  - This query fetches all active tasks.
 
 ## ⚙️ Command Instructions
 
