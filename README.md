@@ -63,31 +63,38 @@ In this challenge, you'll need to implement the following GraphQL operations:
     - `createdAt` (Date)
     - `updatedAt` (Date)
     - `_id` (MongoDB Object Id)
+    - `userId` (String) → required (owner of the task)
+  - **Validation**:
+    - `taskName` must be unique per user
+    - `description` cannot be the same as taskName
+    - `tags` length <= 5
 
 - **`updateTask`**:
   - This mutation updates an existing task's details using its `taskId`.
+  - `userId` must be provided to updateTask mutation.
+    - ❌ If the user does not exist, return an error.
+    - ❌ If the user does not own the task being updated, return an error indicating unauthorized.
   - **Fields to update**:
+    - Only the task owner can update
     - `taskName` (String)
     - `description` (String)
     - `priority` (Int) => validate within range 1-5
     - `isDone` (Boolean)
     - `tags` (Array of Strings) => append or remove tags
 
+
 ### 2. **Queries**:
 
-- **`getDoneTasksLists`**:
+- **`getUserDoneTasksLists`**:
 
-  - This query retrieves all tasks that have been marked as done.
+  - This query retrieves all tasks that have been marked as done by the specified user.
+  - **Required arguments**:
+    - userId (String) – the ID of the user whose completed tasks you want to retrieve.
+  - ❗ If the user with the given userId does not exist, return an appropriate error (e.g., "User not found").
+  - ✅ If the user exists, return all tasks where:
+    - userId matches the provided ID
+    - isDone is true
 
-- **`searchTasks`**:
-  - Accepts searchTerm (String): performs a case-insensitive match.
-  - Supports advanced filtering options:
-        - priority (Int)
-        - isDone (Boolean)
-        - createdBefore (Date)
-        - createdAfter (Date)
- 
-- **`getAllTasks`**:
 
 ## ⚙️ Command Instructions
 
