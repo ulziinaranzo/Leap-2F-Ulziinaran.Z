@@ -6,7 +6,7 @@ jest.mock("../../graphql/schemas", () => ({
       .fn()
       .mockResolvedValueOnce({
         taskName: "hi",
-        isDone: false,
+        taskDone: false,
         createdAt: new Date(),
         updatedAt: new Date(),
       })
@@ -17,19 +17,19 @@ jest.mock("../../graphql/schemas", () => ({
 describe("Add Task Mutation", () => {
   it("Should call addTask mutation with taskName input successfully", async () => {
     const taskName = "Test Task";
-    const priority = 1;
+    const category = "work";
 
-    const result = await addTask({}, { taskName, priority });
+    const result = await addTask({}, { taskName, category });
 
     expect(result.taskName).toEqual("hi");
   });
 
   it("Should call addTask mutation with taskName and priority input with error", async () => {
     const taskName = "Test Task";
-    const priority = 1;
+    const category = "work";
 
     try {
-      await addTask({}, { taskName, priority });
+      await addTask({}, { taskName, category });
     } catch (error) {
       expect(error).toEqual(new Error("Failed to add task: : <error message>"));
     }

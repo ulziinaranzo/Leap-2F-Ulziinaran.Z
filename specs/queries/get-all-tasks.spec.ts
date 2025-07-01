@@ -15,15 +15,15 @@ describe("getAllTasks", () => {
     const mockTasks = [
       {
         taskName: "Task 1",
-        isDone: false,
-        priority: 1,
+        taskDone: false,
+        category: "work",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         taskName: "Task 2",
-        isDone: true,
-        priority: 2,
+        taskDone: true,
+        category: "personal",
         createdAt: new Date(),
         updatedAt: new Date(),
       },

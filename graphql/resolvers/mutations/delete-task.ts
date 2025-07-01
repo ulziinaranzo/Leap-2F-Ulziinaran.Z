@@ -2,26 +2,29 @@ import { TaskModel } from "@/graphql/models/task-schema";
 
 export const deleteTask = async (
   _: unknown,
-  { taskId, taskName }: { taskId: string; taskName: string }
+  { taskId, taskName }: { taskId?: string; taskName?: string }
 ) => {
-  console.log(taskId, taskName);
+  if (!taskId && !taskName) {
+    throw new Error("Устгах таск тодорхойлогдоогүй байна");
+  }
 
   try {
-    const deleteTask = await TaskModel.find({
-      $or: [{ taskName: taskName }, { _id: taskId }],
+    const task = await TaskModel.findOne({
+      $or: [{ _id: taskId }, { taskName: taskName }],
     });
 
-    if (deleteTask.length === 0) {
-      throw new Error("Task not found");
+    if (!task) {
+      throw new Error("Таск олдсонгүй");
     }
 
-    if (!deleteTask[0].isDone) {
-      throw new Error("Task is not complate");
+    if (!task.taskDone) {
+      throw new Error("Таск дуусаагүй тул устгах боломжгүй");
     }
-    const findDelete = await TaskModel.findByIdAndDelete(deleteTask[0]._id);
 
-    return findDelete;
+    const deletedTask = await TaskModel.findByIdAndDelete(task._id);
+
+    return deletedTask;
   } catch (error: any) {
-    throw new Error(`Failed delete Task: ${error.message}`);
+    throw new Error(`Таск устгахад алдаа гарлаа: ${error.message}`);
   }
 };

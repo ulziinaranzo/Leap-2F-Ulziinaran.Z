@@ -5,17 +5,22 @@ export const updateTask = async (
   {
     taskId,
     taskName,
-    priority,
-    isDone,
-  }: { taskId: string; taskName?: string; priority?: number; isDone?: boolean }
+    category,
+    taskDone,
+  }: {
+    taskId: string;
+    taskName?: string;
+    category?: string;
+    taskDone?: boolean;
+  }
 ) => {
   try {
     const updatedTask = await TaskModel.findByIdAndUpdate(
       taskId,
       {
         taskName,
-        priority,
-        isDone,
+        category,
+        taskDone,
         updatedAt: new Date(),
       },
       { new: true }

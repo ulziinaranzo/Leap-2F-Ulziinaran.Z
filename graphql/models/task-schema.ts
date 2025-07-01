@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { Schema, model } = mongoose;
+const { Schema, model, models } = mongoose;
 
 const taskSchema = new Schema({
   taskName: {
@@ -10,18 +10,19 @@ const taskSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  priority: {
-    type: Number,
-    required: true,
+  category: {
+    type: String,
+    required: false,
   },
   createdAt: {
     type: Date,
     default: Date.now,
   },
+
   updatedAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-export const TaskModel = mongoose.models.Task || model("TaskModel", taskSchema);
+export const TaskModel = models.TaskModel || model("TaskModel", taskSchema);

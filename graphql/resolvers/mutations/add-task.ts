@@ -2,13 +2,13 @@ import { TaskModel } from "@/graphql/models/task-schema";
 
 export const addTask = async (
   _: unknown,
-  { taskName, priority }: { taskName: string; priority: number }
+  { taskName, category }: { taskName: string; category: string }
 ) => {
   try {
     const newTask = await TaskModel.create({
       taskName,
-      priority,
-      isDone: false,
+      category,
+      taskDone: false,
       createdAt: new Date(),
       updatedAt: new Date(),
     });

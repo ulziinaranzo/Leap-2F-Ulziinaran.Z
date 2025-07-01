@@ -8,15 +8,20 @@ export const typeDefs = gql`
   }
   type Mutation {
     sayHello(name: String!): String
-    addTask(taskName: String!, priority: Int!): Task
-    updateTask(taskId: ID!, isDone: Boolean): Task
+    addTask(taskName: String!, category: String): Task
+    updateTask(
+      taskId: ID!
+      taskName: String
+      category: String
+      taskDone: Boolean
+    ): Task
     deleteTask(taskId: ID, taskName: String): Task
   }
   type Task {
     _id: ID!
     taskName: String!
-    isDone: Boolean
-    priority: Int!
+    taskDone: Boolean
+    category: String
     createdAt: String
     updatedAt: String
   }
