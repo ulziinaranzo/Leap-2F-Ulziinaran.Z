@@ -1,7 +1,8 @@
+import { TaskModel } from "@/graphql/models/task-schema";
 import { addTask } from "@/graphql/resolvers/mutations/add-task";
 
-jest.mock("../../graphql/schemas", () => ({
-  Task: {
+jest.mock("../../graphql/models/task-schema", () => ({
+  TaskModel: {
     create: jest
       .fn()
       .mockResolvedValueOnce({

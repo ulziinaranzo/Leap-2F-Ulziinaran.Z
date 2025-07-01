@@ -5,6 +5,6 @@ export const getAllTasks = async () => {
     const tasks = await TaskModel.find({});
     return tasks;
   } catch (error) {
-    throw new Error(`Task-уудыг харуулахад алдаа гарлаа`);
+    throw new Error("Unable to fetch tasks");
   }
 };

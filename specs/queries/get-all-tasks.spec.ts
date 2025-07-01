@@ -1,8 +1,8 @@
 import { getAllTasks } from "@/graphql/resolvers/queries/get-all-tasks";
 import { TaskModel } from "@/graphql/models/task-schema";
 
-jest.mock("../../graphql/models", () => ({
-  Task: {
+jest.mock("../../graphql/models/task-schema", () => ({
+  TaskModel: {
     find: jest.fn(),
   },
 }));
@@ -11,6 +11,7 @@ describe("getAllTasks", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
+
   it("should return all tasks", async () => {
     const mockTasks = [
       {
@@ -34,7 +35,6 @@ describe("getAllTasks", () => {
     const result = await getAllTasks();
 
     expect(TaskModel.find).toHaveBeenCalledTimes(1);
-
     expect(result).toEqual(mockTasks);
   });
 

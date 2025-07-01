@@ -34,7 +34,7 @@ describe("getDoneTasks Query", () => {
 
     const result = await getDoneTasks();
 
-    expect(TaskModel.find).toHaveBeenCalledWith({ isDone: true });
+    expect(TaskModel.find).toHaveBeenCalledWith({ taskDone: true });
     expect(TaskModel.find).toHaveBeenCalledTimes(1);
     expect(result).toEqual(mockTasks);
   });

@@ -5,6 +5,6 @@ export const getDoneTasks = async () => {
     const tasks = await TaskModel.find({ taskDone: true });
     return tasks;
   } catch (error) {
-    throw new Error(`Failed to fetch tasks:`);
+    throw new Error("Could not retrieve completed tasks: Database read error");
   }
 };
