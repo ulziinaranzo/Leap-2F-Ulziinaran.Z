@@ -2,13 +2,13 @@ import { addTask } from "./mutations/add-task";
 import { deleteTask } from "./mutations/delete-task";
 import { sayHello } from "./mutations/say-hello";
 import { updateTask } from "./mutations/update-task";
-import { getAllTasks, getDoneTasks, helloQuery } from "./queries";
+import { getAllTasks, getUserDoneTasksLists, helloQuery } from "./queries";
 
 export const resolvers = {
   Query: {
     helloQuery,
     getAllTasks,
-    getDoneTasks,
+    getUserDoneTasksLists,
   },
   Mutation: {
     sayHello,

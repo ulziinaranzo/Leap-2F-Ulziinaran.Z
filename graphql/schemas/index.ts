@@ -4,25 +4,39 @@ export const typeDefs = gql`
   type Query {
     helloQuery: String
     getAllTasks: [Task]
-    getDoneTasks: [Task]
+    getUserDoneTasksLists(userId: String!): [Task]
   }
+
   type Mutation {
     sayHello(name: String!): String
-    addTask(taskName: String!, category: String): Task
+    addTask(
+      taskName: String!
+      description: String!
+      priority: Int!
+      userId: String!
+      tags: [String]
+    ): Task
     updateTask(
       taskId: ID!
+      userId: String!
       taskName: String
-      category: String
-      taskDone: Boolean
+      description: String
+      priority: Int
+      isDone: Boolean
+      tags: [String]
     ): Task
     deleteTask(taskId: ID, taskName: String): Task
   }
+
   type Task {
     _id: ID!
     taskName: String!
-    taskDone: Boolean
-    category: String
-    createdAt: String
-    updatedAt: String
+    description: String!
+    isDone: Boolean!
+    priority: Int!
+    userId: String!
+    tags: [String]
+    createdAt: String!
+    updatedAt: String!
   }
 `;
